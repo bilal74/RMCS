@@ -1,0 +1,17 @@
+.page3{
+  background-color: green;
+  .component{
+    background-color: burlywood;
+    width: 100%;
+    display: flex;
+    .left{
+      background-color: rebeccapurple;
+      width: 30%;
+    }
+
+    .right{
+      background-color: red;
+      width: 70%;
+    }
+    }
+}
