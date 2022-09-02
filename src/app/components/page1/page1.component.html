@@ -41,8 +41,8 @@
   <div class="row4">     
     <!-- <button type="submit" [disabled]="showBtn"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
     <!-- <button type="submit" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
-    <button type="button" [disabled]="showBtn" (click)="onSubmit(userForm.value)" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button>
-  </div>
+    <button type="button" [disabled]="showBtnFinal" (click)="onSubmit(userForm.value)" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button>
+  </div> 
 </form>
   <hr>
   <!-- <button routerLink="page2">To Go On Page 2</button> -->
