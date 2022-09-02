@@ -1,16 +1,19 @@
 .page3{
-  background-color: green;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   .component{
-    background-color: burlywood;
-    width: 100%;
+    background-color: goldenrod;
+    width: 90%;
     display: flex;
     .left{
-      background-color: rebeccapurple;
+      background-color: burlywood;
       width: 30%;
     }
 
     .right{
-      background-color: red;
+      background-color: lightblue;
       width: 70%;
     }
     }

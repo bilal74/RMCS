@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-left',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./left.component.scss']
 })
 export class LeftComponent implements OnInit {
-
+  @Input() userDataFromPage3:any;
   constructor() { }
 
   ngOnInit(): void {
+    console.log("userDataFromPage3", this.userDataFromPage3);
+    
   }
 
 }

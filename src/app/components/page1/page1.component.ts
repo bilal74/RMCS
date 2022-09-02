@@ -36,33 +36,10 @@ export class Page1Component implements OnInit {
 
   
   ngDoCheck(){
-    // console.log(1);
-    // if(data.userName.length){
-
-    // }
-    // if(this.nameError){
-    //  console.log(1);
-    //  this.showBtn = true;
-    // }
-    // else{
-    //   this.showBtn = false;
-
-    // }
-
-    // if(this.nameError == true){
-    //   console.log("Err");
-      
-    // }
-    // else{
-    //   console.log("Clr");
-      
-    // }
   }
 
   ngOnChanges(){
     console.log('Change');
-    
-    
   }
 
   ngOnInit(): void {
