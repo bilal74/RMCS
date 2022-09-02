@@ -7,14 +7,15 @@ import { UserDataFromHomeService } from 'src/app/services/user-data-from-home.se
   styleUrls: ['./page1.component.scss']
 })
 export class Page1Component implements OnInit {
-
+  
   constructor(private userService:UserDataFromHomeService) { }
   userData:any = [{}];
-
+  
   numRound:boolean = true;  
   showRoundOrId:boolean = false;  
+  showBtn1: boolean = true;
   showBtn:boolean = true;
-  // showBtn:boolean = false;
+  showBtnFinal:boolean = true;
   nameError:boolean = false;
   radioBtnError:boolean = false;
   roundsOrRoomIDError:boolean = false;
@@ -36,32 +37,15 @@ export class Page1Component implements OnInit {
 
   
   ngDoCheck(){
-    // console.log(1);
-    // if(data.userName.length){
-
-    // }
-    // if(this.nameError){
-    //  console.log(1);
-    //  this.showBtn = true;
-    // }
-    // else{
-    //   this.showBtn = false;
-
-    // }
-
-    // if(this.nameError == true){
-    //   console.log("Err");
-      
-    // }
-    // else{
-    //   console.log("Clr");
-      
-    // }
   }
 
   ngOnChanges(){
     console.log('Change');
-    
+  }
+
+  testBil(){
+    console.log(this.showBtn);
+    console.log(this.showBtn1);
     
   }
 
@@ -110,6 +94,7 @@ export class Page1Component implements OnInit {
   }
 
   onItemChangeRadioBtn(radioBtnData:any){
+    this.showBtnFinal = true;
     this.showRoundOrId = true;
     this.radioBtnValue = radioBtnData;
     if(radioBtnData.value == "create"){
@@ -123,11 +108,18 @@ export class Page1Component implements OnInit {
  onItemChangeNameInput(nameInput:any){
   if(nameInput.value.length > 2){
     this.nameError = false; 
-    // this.showBtn = false;
+    this.showBtn1 = false;
   }
   else{
     this.nameError = true;
-    // this.showBtn = true;
+    this.showBtn1 = true;
+  }
+
+  if(this.showBtn== false && this.showBtn1==false){
+    this.showBtnFinal = false;
+  }
+  else{
+    this.showBtnFinal = true;
   }
  }
 
@@ -145,6 +137,12 @@ export class Page1Component implements OnInit {
   //   console.log(2);
 
   // }
+  if(this.showBtn== false && this.showBtn1==false){
+    this.showBtnFinal = false;
+  }
+  else{
+    this.showBtnFinal = true;
+  }
   
  }
 

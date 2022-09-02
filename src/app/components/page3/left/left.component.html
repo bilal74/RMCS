@@ -1,1 +1,17 @@
-<p>left works!</p>
+<!-- <p>left works!</p> -->
+
+<h2>Score Table</h2>
+
+<table border="1">
+  <tr>
+    <td>Rank</td>
+    <td>Name</td>
+    <td>Score</td>
+  </tr>
+
+  <tr *ngFor="let item of userDataFromPage3; let i=index">
+    <td>{{i+1}}</td>
+    <td>{{item.userName}}</td>
+    <td>{{item.score}}</td>
+  </tr>
+</table>
