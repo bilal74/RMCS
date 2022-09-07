@@ -1,3 +1,118 @@
-.page1{
-  // background-color: rgb(201, 187, 187);
+$main-color: #ffca3a;
+.page1 {
+  height: 100vh;
+  display: flex;
+  align-self: center;
+  form {
+    margin: auto;
+    // border: 2px solid red;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 5rem;
+    z-index: 5;
+    .firstp {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+    .row1 {
+      // border: 2px solid blue;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+      input {
+        margin-top: 0;
+        padding: 0.3rem 0.8rem;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.6s ease;
+      }
+      p.error {
+        background-color: $main-color;
+        color: #fff;
+        margin-top: 0.3rem;
+        padding: 0rem 1rem;
+        border-radius: 5px;
+      }
+    }
+    .row2 {
+      // border: 2px solid yellow;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+      .input-box {
+        display: inline;
+        input[type="radio"] {
+          width: 1rem;
+          height: 1rem;
+          margin: 0 0.5rem;
+        }
+        span {
+          text-transform: capitalize;
+          // border: 2px solid red;
+          margin: auto 0;
+          font-size: 1rem;
+          color: white;
+        }
+      }
+    }
+    .row3 {
+      // border: 2px solid green;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+      select {
+        outline: none;
+        // width: 100%;
+        option {
+          font-size: 1rem;
+        }
+      }
+      input[type="text"] {
+        padding: 0.3rem 0.8rem;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+      }
+    }
+    .row4 {
+      // border: 2px solid red;
+      padding: 0 1rem;
+      margin-top: 3rem;
+      button {
+        width: 100%;
+        outline: none;
+        border: none;
+        padding: 0.2rem 1rem;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        // background: #3a99ff91;
+        transition: all 0.4s ease-in-out;
+        &:hover {
+          background: $main-color;
+          color: #fff;
+          box-shadow: 0 0 5px $main-color, 0 0 25px $main-color,
+            0 0 50px $main-color, 0 0 100px $main-color;
+        }
+      }
+    }
+  }
+  // .king {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 50vw;
+  //   height: 50vh;
+  //   border: 2px solid red;
+  //   img {
+  //     width: 100%;
+  //   }
+  // }
+}
+
+@media (max-width: 470px) {
+  form {
+    padding: 5rem 1rem !important;
+    .input-box {
+      display: block !important;
+    }
+  }
 }
