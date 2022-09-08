@@ -27,11 +27,6 @@
         <select name="roundValue" id="" ngModel [value]='3' (change)="onItemChangeRoundInput($event.target)">
           <option *ngFor="let s of roundsValues" [value]="s.count">{{s.rounds}}</option>
         </select>
-        <!-- <select name="roundValue" id="" ngModel >
-        <option value="3">3 Rounds</option>
-        <option value="5">5 Rounds</option>
-        <option value="10">10 Rounds</option>
-      </select> -->
         <p *ngIf="roundsOrRoomIDError">Please give the value</p>
       </div>
 
@@ -44,16 +39,10 @@
     </div>
 
     <div class="row4">
-      <!-- <button type="submit" [disabled]="showBtn"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
-      <!-- <button type="submit" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
-      <button type="button" [disabled]="showBtnFinal" (click)="onSubmit(userForm.value)" routerLink="page2">
-        <!-- <span class="moving"></span>
-        <span class="moving"></span>
-        <span class="moving"></span>
-        <span class="moving"></span> -->
+      <button type="button" [disabled]="showBtnFinal" (click)="onSubmit(userForm.value)" routerLink="page2">        
         <span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span>
       </button>
+      
     </div>
   </form>
-  <!-- <button routerLink="page2">To Go On Page 2</button> -->
 </div>

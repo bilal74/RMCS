@@ -35,20 +35,6 @@ export class Page1Component implements OnInit {
     },
   ]
 
-  
-  ngDoCheck(){
-  }
-
-  ngOnChanges(){
-    console.log('Change');
-  }
-
-  testBil(){
-    console.log(this.showBtn);
-    console.log(this.showBtn1);
-    
-  }
-
   ngOnInit(): void {
   }
 
@@ -95,6 +81,7 @@ export class Page1Component implements OnInit {
 
   onItemChangeRadioBtn(radioBtnData:any){
     this.showBtnFinal = true;
+    this.showBtn = true;
     this.showRoundOrId = true;
     this.radioBtnValue = radioBtnData;
     if(radioBtnData.value == "create"){
@@ -124,26 +111,17 @@ export class Page1Component implements OnInit {
  }
 
  onItemChangeRoundInput(roundsInput:any){
-  console.log(roundsInput.value);
-
-  if(roundsInput.value && this.nameError==false){
-    // console.log(1);    
+  if(roundsInput.value){   
     this.showBtn = false;
   }
-  else{
+  else{  
     this.showBtn = true;
   }
-  // else{
-  //   console.log(2);
-
-  // }
   if(this.showBtn== false && this.showBtn1==false){
-    this.showBtnFinal = false;
+    this.showBtnFinal = false;    
   }
   else{
     this.showBtnFinal = true;
-  }
-  
+  }  
  }
-
 }
