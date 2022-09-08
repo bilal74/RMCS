@@ -24,11 +24,12 @@ $main-color: #ffca3a;
         outline: none;
         border: none;
         border-radius: 5px;
+        width: 100%;
         transition: all 0.6s ease;
       }
       p.error {
-        background-color: $main-color;
-        color: #fff;
+        background-color: pink;
+        color: red;
         margin-top: 0.3rem;
         padding: 0rem 1rem;
         border-radius: 5px;
@@ -84,6 +85,7 @@ $main-color: #ffca3a;
         position: relative;
         display: inline-block;
         overflow: hidden;
+        border-radius: 5px;
         // background: #3a99ff91;
         transition: all 0.4s ease-in-out;
         &:hover {
@@ -95,17 +97,6 @@ $main-color: #ffca3a;
       }
     }
   }
-  // .king {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 50vw;
-  //   height: 50vh;
-  //   border: 2px solid red;
-  //   img {
-  //     width: 100%;
-  //   }
-  // }
 }
 
 @media (max-width: 470px) {
@@ -113,6 +104,9 @@ $main-color: #ffca3a;
     padding: 5rem 1rem !important;
     .input-box {
       display: block !important;
+    }
+    option {
+      font-size: 0.8rem !important;
     }
   }
 }
