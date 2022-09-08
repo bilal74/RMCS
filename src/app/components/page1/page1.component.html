@@ -2,48 +2,58 @@
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
 
     <div class="row1">
-      <p>Name : </p>
-      <input type="text" name="userName" placeholder="Type your name" ngModel (change)="onItemChangeNameInput($event.target)">
-      <p *ngIf="nameError">Name must bhi 3 characters</p>
-    </div>   
+      <p class="firstp">Name : </p>
+      <input type="text" name="userName" placeholder="Type your name" ngModel
+        (change)="onItemChangeNameInput($event.target)">
+      <p *ngIf="nameError" class="error">Name must be 3 characters</p>
+    </div>
 
-    <hr>
-    <div class="row2">    
-      <p>Select : </p>  
-      <input type="radio" name="gob" value="create" (change)="onItemChangeRadioBtn($event.target)"/> Create a room
-      <input type="radio" name="gob" value="join" (change)="onItemChangeRadioBtn($event.target)"/> Join a room
-      <p *ngIf="radioBtnError">Please select any 1 option</p>
-    </div>    
-  <hr>
+    <div class="row2">
+      <p class="firstp">Select : </p>
+      <div class="input-box">
+        <input type="radio" name="gob" value="create" (change)="onItemChangeRadioBtn($event.target)" /> <span>Create a
+          room</span>
+      </div>
+      <div class="input-box">
+        <input type="radio" name="gob" value="join" (change)="onItemChangeRadioBtn($event.target)" /> <span>Join a
+          room</span>
+        <p *ngIf="radioBtnError">Please select any 1 option</p>
+      </div>
+    </div>
 
-  <div class="row3" *ngIf="showRoundOrId">
-    <div class="number-of-rounds" *ngIf="numRound">
-      <p>Number of rounds</p>
-      <select name="roundValue" id="" ngModel [value]='3' (change)="onItemChangeRoundInput($event.target)">
-        <option *ngFor="let s of roundsValues" [value]="s.count" >{{s.rounds}}</option>
-      </select>
-      <!-- <select name="roundValue" id="" ngModel >
+    <div class="row3" *ngIf="showRoundOrId">
+      <div class="number-of-rounds" *ngIf="numRound">
+        <p class="firstp">Number of rounds</p>
+        <select name="roundValue" id="" ngModel [value]='3' (change)="onItemChangeRoundInput($event.target)">
+          <option *ngFor="let s of roundsValues" [value]="s.count">{{s.rounds}}</option>
+        </select>
+        <!-- <select name="roundValue" id="" ngModel >
         <option value="3">3 Rounds</option>
         <option value="5">5 Rounds</option>
         <option value="10">10 Rounds</option>
       </select> -->
-      <p *ngIf="roundsOrRoomIDError">Please give the value</p>
-    </div>
-    
-    <div class="id-input" *ngIf="!numRound">
-      <p>Id</p>
-      <input type="text" name="roomId" id="" placeholder="Type room id" ngModel (change)="onItemChangeRoundInput($event.target)">
-      <p *ngIf="roundsOrRoomIDError">Please give the value</p>
-    </div>
-  </div>
-  <hr>
+        <p *ngIf="roundsOrRoomIDError">Please give the value</p>
+      </div>
 
-  <div class="row4">     
-    <!-- <button type="submit" [disabled]="showBtn"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
-    <!-- <button type="submit" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
-    <button type="button" [disabled]="showBtnFinal" (click)="onSubmit(userForm.value)" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button>
-  </div> 
-</form>
-  <hr>
+      <div class="id-input" *ngIf="!numRound">
+        <p class="firstp">Id</p>
+        <input type="text" name="roomId" id="" placeholder="Type room id" ngModel
+          (change)="onItemChangeRoundInput($event.target)">
+        <p *ngIf="roundsOrRoomIDError">Please give the value</p>
+      </div>
+    </div>
+
+    <div class="row4">
+      <!-- <button type="submit" [disabled]="showBtn"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
+      <!-- <button type="submit" routerLink="page2"><span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span></button> -->
+      <button type="button" [disabled]="showBtnFinal" (click)="onSubmit(userForm.value)" routerLink="page2">
+        <!-- <span class="moving"></span>
+        <span class="moving"></span>
+        <span class="moving"></span>
+        <span class="moving"></span> -->
+        <span>{{this.numRound == true ? 'Create a Room' : 'Join a Room'}}</span>
+      </button>
+    </div>
+  </form>
   <!-- <button routerLink="page2">To Go On Page 2</button> -->
 </div>

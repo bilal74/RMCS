@@ -1,3 +1,9 @@
-h1{
-  background-color: pink;
+footer {
+  background-color: #ffca3a;
+  position: fixed;      
+  bottom: 0;             
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
 }
