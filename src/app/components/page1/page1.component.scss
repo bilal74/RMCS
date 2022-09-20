@@ -1,11 +1,12 @@
 $main-color: #ffca3a;
 .page1 {
-  height: 100vh;
+  height: 90vh;
   display: flex;
+  justify-content: center;
   align-self: center;
+
   form {
     margin: auto;
-    // border: 2px solid red;
     background-color: rgba(0, 0, 0, 0.15);
     padding: 5rem;
     z-index: 5;
@@ -15,7 +16,6 @@ $main-color: #ffca3a;
       margin-bottom: 0;
     }
     .row1 {
-      // border: 2px solid blue;
       padding: 0 1rem;
       margin-bottom: 1rem;
       input {
