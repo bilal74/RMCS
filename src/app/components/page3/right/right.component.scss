@@ -21,7 +21,7 @@ button {
   z-index: 1;
 }
 
-.box1 {
+@mixin boxcode {
   border: 2px solid blue;
   background-color: antiquewhite;
   padding: 0.5rem 1rem;
@@ -33,90 +33,49 @@ button {
   height: 30px;
   top: 75%;
   left: 50px;
-  // display: none;
-
+}
+.box1 {
+  @include boxcode();
   transition: all 0.4s ease-in-out;
 }
 
 .box2 {
-  border: 2px solid blue;
-  background-color: aqua;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  border-radius: 5px;
-  z-index: -99;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 75%;
-  left: 50px;
-  // display: none;
-
+  @include boxcode();
   transition: all 0.4s ease-in-out;
   transition-delay: 0.3s;
 }
 .box3 {
-  border: 2px solid blue;
-  background-color: aqua;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  border-radius: 5px;
-  z-index: -99;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 75%;
-  left: 50px;
+  @include boxcode();
   transition: all 0.4s ease-in-out;
   transition-delay: 0.5s;
-  // display: none;
 }
 .box4 {
-  border: 2px solid blue;
-  background-color: aqua;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  border-radius: 5px;
-  z-index: -99;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 75%;
-  left: 50px;
+  @include boxcode();
   transition: all 0.4s ease-in-out;
   transition-delay: 0.7s;
-  // display: none;
 }
-
-button:hover ~ .box1 {
+@mixin btnHover {
   display: block;
   width: 25%;
   height: 150px;
+}
+button:hover ~ .box1 {
+  @include btnHover();
   top: 5%;
   left: 40%;
 }
 button:hover ~ .box2 {
-  display: block;
-  width: 25%;
-  height: 150px;
+  @include btnHover();
   top: 5%;
   left: 70%;
 }
 button:hover ~ .box3 {
-  display: block;
-
-  width: 25%;
-
-  height: 150px;
+  @include btnHover();
   top: 50%;
   left: 40%;
 }
 button:hover ~ .box4 {
-  display: block;
-
-  width: 25%;
-
-  height: 150px;
+  @include btnHover();
   top: 50%;
   left: 70%;
 }
