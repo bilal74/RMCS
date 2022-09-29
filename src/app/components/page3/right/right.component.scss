@@ -59,22 +59,22 @@ button {
   width: 25%;
   height: 150px;
 }
-button:hover ~ .box1 {
+.boxClass ~ .box1 {
   @include btnHover();
   top: 5%;
   left: 40%;
 }
-button:hover ~ .box2 {
+.boxClass ~ .box2 {
   @include btnHover();
   top: 5%;
   left: 70%;
 }
-button:hover ~ .box3 {
+.boxClass ~ .box3 {
   @include btnHover();
   top: 50%;
   left: 40%;
 }
-button:hover ~ .box4 {
+.boxClass ~ .box4 {
   @include btnHover();
   top: 50%;
   left: 70%;

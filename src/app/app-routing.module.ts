@@ -7,7 +7,9 @@ import { Page3Component } from './components/page3/page3.component';
 const routes: Routes = [
   {path:'', component:Page1Component},
   {path:'page2', component:Page2Component},
-  {path:'page2/page3', component:Page3Component}
+  {path:'page2/page3', component:Page3Component},
+  {path:'detail', loadChildren:()=>import('../detail/detail.module').then(mod=>mod.DetailModule)}
+
 ];
 
 @NgModule({
