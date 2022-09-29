@@ -1,0 +1,81 @@
+.right-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 2px solid red;
+}
+
+button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid green;
+  outline: none;
+  z-index: 100;
+  background-color: antiquewhite;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+.box {
+  z-index: 1;
+}
+
+@mixin boxcode {
+  border: 2px solid blue;
+  background-color: antiquewhite;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  z-index: -99;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 75%;
+  left: 50px;
+}
+.box1 {
+  @include boxcode();
+  transition: all 0.4s ease-in-out;
+}
+
+.box2 {
+  @include boxcode();
+  transition: all 0.4s ease-in-out;
+  transition-delay: 0.3s;
+}
+.box3 {
+  @include boxcode();
+  transition: all 0.4s ease-in-out;
+  transition-delay: 0.5s;
+}
+.box4 {
+  @include boxcode();
+  transition: all 0.4s ease-in-out;
+  transition-delay: 0.7s;
+}
+@mixin btnHover {
+  display: block;
+  width: 25%;
+  height: 150px;
+}
+button:hover ~ .box1 {
+  @include btnHover();
+  top: 5%;
+  left: 40%;
+}
+button:hover ~ .box2 {
+  @include btnHover();
+  top: 5%;
+  left: 70%;
+}
+button:hover ~ .box3 {
+  @include btnHover();
+  top: 50%;
+  left: 40%;
+}
+button:hover ~ .box4 {
+  @include btnHover();
+  top: 50%;
+  left: 70%;
+}
