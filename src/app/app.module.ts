@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LeftComponent } from './components/page3/left/left.component';
 import { RightComponent } from './components/page3/right/right.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,9 @@ import { RightComponent } from './components/page3/right/right.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    TooltipModule.forRoot(),
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

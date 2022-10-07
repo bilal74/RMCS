@@ -1,9 +1,9 @@
-<div class="page2">
+<!-- <div class="page2">
 
-  <p>page2 works!</p>
+  <p>page2 works!</p> 
   <button routerLink="page3">To Go On Page 3</button>
-</div>
-<br>
+</div> -->
+<!-- <br>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="fullCard">
   <div>
@@ -49,5 +49,55 @@
 </div>
 
 <button class="button-32" role="button">PLAY</button>
-<i class="fa-thin fa-loader"></i>
+<i class="fa-thin fa-loader"></i> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<div class="page2">
+  <div class="parent-page2">
+    <div class="cards-page2">
+      <div class="card-pg2"> 
+        <div class="card-present" *ngIf="showCard1">
+          <img src="../../../assets/king-removebg-preview.png" alt="">
+          <p class="cards-name">Name</p>
+        </div>       
+        <div class="spinner-page2" *ngIf="!showCard1">
+          <mat-spinner></mat-spinner>
+        </div>
+            
+      </div>
+      <div class="card-pg2">        
+        <div class="card-present" *ngIf="showCard2">
+          <img src="../../../assets/mantrii-removebg-preview.png" alt="">
+          <p class="cards-name">Name</p>
+        </div>       
+        <div class="spinner-page2" *ngIf="!showCard2">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+      <div class="card-pg2">
+        
+        <div class="card-present" *ngIf="showCard3">
+          <img src="../../../assets/chor-removebg-preview.png" alt="">
+        <p class="cards-name">Name</p>
+        </div>       
+        <div class="spinner-page2" *ngIf="!showCard3">
+          <mat-spinner></mat-spinner>
+        </div>
+        
+      </div>
+      <div class="card-pg2">        
+        <div class="card-present" *ngIf="showCard4">
+          <img src="../../../assets/knight-removebg-preview.png" alt="">
+          <p class="cards-name">Name</p>
+        </div>       
+        <div class="spinner-page2" *ngIf="!showCard4">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-page2">
+      <button routerLink="page3" tooltip="Only Host Can Start The Game" [disabled]="true">Start Game</button>
+    </div>
+  </div>
+</div>
 
