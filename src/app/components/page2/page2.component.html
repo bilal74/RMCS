@@ -43,8 +43,11 @@
     </div>
 
     <div class="btn-page2">
-      <button routerLink="page3" tooltip="Only Host Can Start The Game" [disabled]="false">Start Game</button>
+      <button routerLink="page3" tooltip="Only Host Can Start The Game" [disabled]="startButton">Start Game</button>
     </div>
+
+    <button (click)="addValue()" [disabled]="disableAddbtn">Add Cards</button>
+    <button (click)="clearValue()" [disabled]="disableClearbtn">Clear Cards</button>
   </div>
 </div>
 
