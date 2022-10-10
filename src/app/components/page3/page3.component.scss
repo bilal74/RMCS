@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 2px solid red;
   height: 90vh;
 
   .component {
@@ -16,7 +15,8 @@
     padding: 20px;
 
     .left {
-      // background-color: burlywood;
+      background-color: burlywood;
+      border: 2px solid green;
       width: 35%;
       z-index: 5;
     }
@@ -25,8 +25,38 @@
       // background-color: lightblue;
       border: 2px solid blue;
       width: 65%;
+      height: 400px;
       padding: 10px;
       position: relative;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .component {
+    flex-direction: column;
+    .left {
+      width: 40% !important;
+      align-self: flex-start;
+    }
+    .right {
+      // order: -1;
+      width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .component {
+    flex-direction: column;
+    padding: 10px 5px !important;
+    .left {
+      width: 40% !important;
+      align-self: flex-start;
+    }
+    .right {
+      // order: -1;
+      width: 100% !important;
     }
   }
 }

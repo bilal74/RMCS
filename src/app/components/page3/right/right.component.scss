@@ -3,7 +3,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  border: 2px solid red;
+  // border: 2px solid red;
+  .names {
+    position: relative;
+    top: 100px !important;
+    h3 {
+      display: inline !important;
+      width: max-content;
+      z-index: -100 !important;
+    }
+  }
 }
 
 button {
@@ -12,45 +21,51 @@ button {
   border-radius: 5px;
   border: 2px solid green;
   outline: none;
-  z-index: 100;
+  z-index: 1000;
   background-color: antiquewhite;
   cursor: pointer;
   margin-bottom: 0.5rem;
 }
-.box {
-  z-index: 1;
-}
+// .box {
+//   z-index: 1;
+// }
 
 @mixin boxcode {
-  border: 2px solid blue;
-  background-color: antiquewhite;
+  // border: 2px solid blue;
+  // background-color: antiquewhite;
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
   border-radius: 5px;
-  z-index: -99;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 75%;
-  left: 50px;
+  // z-index: -99;
+  // position: absolute;
+  perspective: 1000px;
+  position: relative;
+  width: 0px;
+  height: 0px;
+  top: 300px;
+  left: 200%;
 }
 .box1 {
   @include boxcode();
+  opacity: 0;
   transition: all 0.4s ease-in-out;
 }
 
 .box2 {
   @include boxcode();
+  opacity: 0;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.3s;
 }
 .box3 {
   @include boxcode();
+  opacity: 0;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.5s;
 }
 .box4 {
   @include boxcode();
+  opacity: 0;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.7s;
 }
@@ -61,21 +76,124 @@ button {
 }
 .boxClass ~ .box1 {
   @include btnHover();
-  top: 5%;
+  opacity: 1;
+  top: -240px;
   left: 40%;
 }
 .boxClass ~ .box2 {
   @include btnHover();
-  top: 5%;
+  opacity: 1;
+  top: -388px;
   left: 70%;
 }
 .boxClass ~ .box3 {
   @include btnHover();
-  top: 50%;
+  opacity: 1;
+  top: -350px;
   left: 40%;
 }
 .boxClass ~ .box4 {
   @include btnHover();
-  top: 50%;
+  opacity: 1;
+  top: -495px;
   left: 70%;
+}
+
+// card flip
+.card-content {
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
+  transition: all 2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.box1:hover .card-front {
+  transform: rotateY(-180deg);
+}
+.box1:hover .card-back {
+  transform: rotateY(0);
+}
+
+.box2:hover .card-front {
+  transform: rotateY(-180deg);
+}
+.box2:hover .card-back {
+  transform: rotateY(0);
+}
+
+.box3:hover .card-front {
+  transform: rotateY(-180deg);
+}
+.box3:hover .card-back {
+  transform: rotateY(0);
+}
+
+.box4:hover .card-front {
+  transform: rotateY(-180deg);
+}
+.box4:hover .card-back {
+  transform: rotateY(0);
+}
+
+.card-content img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .names {
+    margin-top: 20px;
+    position: relative;
+    left: 55%;
+    top: -180px;
+    h3 {
+      font-size: 120%;
+      margin-bottom: 3px;
+    }
+  }
+  #start-btn {
+    position: relative;
+    left: 55%;
+    top: -230px;
+    padding: 5px 10px;
+  }
+  #cancel-btn {
+    position: relative;
+    left: 55%;
+    top: -230px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .names {
+    position: relative;
+    left: 55%;
+    top: -160px;
+    h3 {
+      font-size: 100%;
+      margin-bottom: 3px;
+    }
+  }
+  #start-btn {
+    position: relative;
+    left: 55%;
+    top: -210px;
+    padding: 5px 10px;
+  }
+  #cancel-btn {
+    position: relative;
+    left: 55%;
+    top: -210px;
+    padding: 5px 10px;
+  }
 }

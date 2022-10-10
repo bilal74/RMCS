@@ -1,10 +1,11 @@
 <div class="rightbox">
-    <p>right works!</p>
+    <div class="names">
+        <h3>{{userDataFromPage3ForRight[0].userName}} : Raja</h3>
+        <h3>{{userDataFromPage3ForRight[1].userName}} : Mantri</h3>
+        <h3 (click)="checkAns()">{{userDataFromPage3ForRight[2].userName}} : {{valArray[0]}}</h3>
+        <h3 (click)="checkAns()">{{userDataFromPage3ForRight[3].userName}} : {{valArray[1]}}</h3>
+    </div>
 
-    <h3>{{userDataFromPage3ForRight[0].userName}} : Raja</h3>
-    <h3>{{userDataFromPage3ForRight[1].userName}} : Mantri</h3>
-    <h3 (click)="checkAns()">{{userDataFromPage3ForRight[2].userName}} : {{valArray[0]}}</h3>
-    <h3 (click)="checkAns()">{{userDataFromPage3ForRight[3].userName}} : {{valArray[1]}}</h3> 
     <!-- <h3>{{userDataFromPage3ForRight[2].userName}} : Chor</h3>
 <h3>{{userDataFromPage3ForRight[3].userName}} : Sipahi</h3> -->
 
@@ -14,10 +15,52 @@
     <br>
     <br>
     <!-- <button (click)="shuflleNumber()" class="boxClass">Start</button> -->
-    <button (click)="shuflleNumber()" [className]="cardsButtonClass">Start</button>
-    <button (click)="resetCards()" [className]="cardsButtonClass">Cancel</button>
-    <div class="box box1">box1</div>
-    <div class="box box2">box2</div>
-    <div class="box box3">box3</div>
-    <div class="box box4">box4</div>
+    <button (click)="shuflleNumber()" [className]="cardsButtonClass" id="start-btn">Start</button>
+    <button (click)="resetCards()" [className]="cardsButtonClass" id="cancel-btn">Cancel</button>
+
+
+    <div class="box1">
+        <div class="card-content card-front">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80"
+                alt="Dog" />
+        </div>
+
+        <div class="card-content card-back">
+            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+                alt="Cat" />
+        </div>
+    </div>
+    <div class="box2">
+        <div class="card-content card-front">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80"
+                alt="Dog" />
+        </div>
+
+        <div class="card-content card-back">
+            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+                alt="Cat" />
+        </div>
+    </div>
+    <div class="box3">
+        <div class="card-content card-front">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80"
+                alt="Dog" />
+        </div>
+
+        <div class="card-content card-back">
+            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+                alt="Cat" />
+        </div>
+    </div>
+    <div class="box4">
+        <div class="card-content card-front">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80"
+                alt="Dog" />
+        </div>
+
+        <div class="card-content card-back">
+            <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+                alt="Cat" />
+        </div>
+    </div>
 </div>
