@@ -85,6 +85,7 @@ usersData1:any = [
   clearValue(){
     console.log("Clear");
     this.usersData1.pop();
+    this.disableAddbtn = false;
     if(this.usersData1.length < 0){
       this.disableClearbtn = true;
     }
