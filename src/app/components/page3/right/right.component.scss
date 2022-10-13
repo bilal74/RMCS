@@ -1,14 +1,15 @@
-.right-box {
+$main-color: #ffca3a;
+
+.rightbox {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
   // border: 2px solid red;
   .names {
-    position: relative;
-    top: 100px !important;
     h3 {
-      display: inline !important;
+      color: white;
       width: max-content;
       z-index: -100 !important;
     }
@@ -16,56 +17,58 @@
 }
 
 button {
-  padding: 0.5rem 1.5rem;
+  padding: 0.2rem 0.8rem;
   font-size: 1rem;
+  display: inline;
   border-radius: 5px;
-  border: 2px solid green;
+  border: none;
   outline: none;
+  border-radius: 5px;
   z-index: 1000;
   background-color: antiquewhite;
   cursor: pointer;
   margin-bottom: 0.5rem;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background: $main-color;
+    color: #fff;
+    box-shadow: 0 0 5px $main-color, 0 0 25px $main-color, 0 0 50px $main-color,
+      0 0 100px $main-color;
+  }
 }
-// .box {
-//   z-index: 1;
-// }
 
 @mixin boxcode {
-  // border: 2px solid blue;
-  // background-color: antiquewhite;
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
   border-radius: 5px;
-  // z-index: -99;
-  // position: absolute;
   perspective: 1000px;
   position: relative;
   width: 0px;
   height: 0px;
-  top: 300px;
+  top: -100px;
   left: 200%;
 }
 .box1 {
   @include boxcode();
-  opacity: 0;
+  opacity: 1;
   transition: all 0.4s ease-in-out;
 }
 
 .box2 {
   @include boxcode();
-  opacity: 0;
+  opacity: 1;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.3s;
 }
 .box3 {
   @include boxcode();
-  opacity: 0;
+  opacity: 1;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.5s;
 }
 .box4 {
   @include boxcode();
-  opacity: 0;
+  opacity: 1;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.7s;
 }
@@ -77,25 +80,25 @@ button {
 .boxClass ~ .box1 {
   @include btnHover();
   opacity: 1;
-  top: -240px;
+  top: -300px;
   left: 40%;
 }
 .boxClass ~ .box2 {
   @include btnHover();
   opacity: 1;
-  top: -388px;
+  top: -450px;
   left: 70%;
 }
 .boxClass ~ .box3 {
   @include btnHover();
   opacity: 1;
-  top: -350px;
+  top: -420px;
   left: 40%;
 }
 .boxClass ~ .box4 {
   @include btnHover();
   opacity: 1;
-  top: -495px;
+  top: -570px;
   left: 70%;
 }
 
@@ -110,7 +113,9 @@ button {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-
+.card-content img {
+  border-radius: 3px;
+}
 .card-back {
   transform: rotateY(180deg);
 }

@@ -1,41 +1,41 @@
 <div class="page2">
   <div class="parent-page2">
     <div class="cards-page2">
-      <div class="card-pg2"> 
+      <div class="card-pg2">
         <div class="card-present" *ngIf="showCard1">
           <img src="../../../assets/king-removebg-preview.png" alt="">
           <p class="cards-name">Name</p>
-        </div>       
+        </div>
         <div class="spinner-page2" *ngIf="!showCard1">
           <mat-spinner></mat-spinner>
         </div>
-            
+
       </div>
-      <div class="card-pg2">        
+      <div class="card-pg2">
         <div class="card-present" *ngIf="showCard2">
           <img src="../../../assets/mantrii-removebg-preview.png" alt="">
           <p class="cards-name">Name</p>
-        </div>       
+        </div>
         <div class="spinner-page2" *ngIf="!showCard2">
           <mat-spinner></mat-spinner>
         </div>
       </div>
       <div class="card-pg2">
-        
+
         <div class="card-present" *ngIf="showCard3">
           <img src="../../../assets/chor-removebg-preview.png" alt="">
-        <p class="cards-name">Name</p>
-        </div>       
+          <p class="cards-name">Name</p>
+        </div>
         <div class="spinner-page2" *ngIf="!showCard3">
           <mat-spinner></mat-spinner>
         </div>
-        
+
       </div>
-      <div class="card-pg2">        
+      <div class="card-pg2">
         <div class="card-present" *ngIf="showCard4">
           <img src="../../../assets/knight-removebg-preview.png" alt="">
           <p class="cards-name">Name</p>
-        </div>       
+        </div>
         <div class="spinner-page2" *ngIf="!showCard4">
           <mat-spinner></mat-spinner>
         </div>
@@ -43,11 +43,11 @@
     </div>
 
     <div class="btn-page2">
-      <button routerLink="page3" tooltip="Only Host Can Start The Game" [disabled]="startButton">Start Game</button>
+      <button routerLink="page3" tooltip="Only Host Can Start The Game" [disabled]="startButton" class="btn-start">Start
+        Game</button>
     </div>
 
     <button (click)="addValue()" [disabled]="disableAddbtn">Add Cards</button>
     <button (click)="clearValue()" [disabled]="disableClearbtn">Clear Cards</button>
   </div>
 </div>
-
