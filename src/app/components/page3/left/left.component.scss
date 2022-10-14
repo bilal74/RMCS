@@ -6,6 +6,7 @@ table {
   padding: 20px;
   width: 90%;
   margin: auto;
+  margin-top: 20px;
   tr {
     // border: 1px solid blue;
     transition: all 0.3s ease-in-out;
@@ -36,6 +37,51 @@ table {
     td {
       height: 60px;
       padding: 10px 20px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  table {
+    padding: 5px !important;
+    width: 90% !important;
+    th {
+      height: 20px !important;
+      padding: 0px 10px !important;
+    }
+    td {
+      height: 30px !important;
+      padding: 5px 10px !important;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  table {
+    // padding: 5px !important;
+    width: 90% !important;
+    th {
+      height: 10px !important;
+      padding: 0px 5px !important;
+    }
+    td {
+      height: 15px !important;
+      padding: 2.5px 5px !important;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  table {
+    // padding: 5px !important;
+    width: 90% !important;
+    th {
+      height: 10px !important;
+      padding: 0px 2.5px !important;
+    }
+    td {
+      height: 15px !important;
+      padding: 2.5px 2.5px !important;
     }
   }
 }

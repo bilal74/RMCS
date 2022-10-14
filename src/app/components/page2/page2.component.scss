@@ -1,8 +1,4 @@
-// body {
-//   max-width: 100%;
-// }
-
-// $main-color: #ffca3a;
+$main-color: #ffca3a;
 
 .page2 {
   // background-color: rebeccapurple;
@@ -10,39 +6,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .parent-page2{
+  .parent-page2 {
     // background-color: blanchedalmond;
     // width: 90%;
-    .cards-page2{
-      background-color: red;
+    .cards-page2 {
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       // width: 90%;
       margin-top: 2rem;
-      .card-pg2{
-        // min-width: 20%;
-        .card-present{  
+      .card-pg2 {
+        .card-present {
           background-color: white;
-            width: 15rem;
-            height: 22rem;              
-            margin: 1.5rem;    
-          img{
+          width: 15rem;
+          height: 22rem;
+          margin: 1.5rem;
+          border-radius: 10px;
+          img {
             width: 100%;
             height: 90%;
+            border-radius: 5px 5px 0px 0px;
           }
-          .cards-name{
-            color: blue;
-            // text-align: center;
-            // background-color: rebeccapurple;
-            // height: 10%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          .cards-name {
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+            color: #444;
           }
         }
-        .spinner-page2{
+        .spinner-page2 {
           width: 15rem;
           height: 22rem;
           margin: 1.5rem;
@@ -58,14 +51,28 @@
       }
     }
 
-    .btn-page2{
-      margin-top: 5rem;
-      // background-color: red;
+    .btn-page2 {
+      margin-top: 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      button{
-        // background-color: blue;
+      .btn-start {
+        width: 20%;
+        margin: auto;
+        outline: none;
+        border: none;
+        padding: 0.2rem 1rem;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 5px;
+        transition: all 0.4s ease-in-out;
+        &:hover {
+          background: $main-color;
+          color: #fff;
+          box-shadow: 0 0 5px $main-color, 0 0 25px $main-color,
+            0 0 50px $main-color, 0 0 100px $main-color;
+        }
       }
     }
   }
