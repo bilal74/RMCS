@@ -9,10 +9,10 @@ app.use(cors());
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:4200",
-    methods: ["GET", "POST"],
-  },
+    cors: {
+        origin: "http://localhost:4200",
+        methods: ["GET", "POST"],
+    },
 });
 
 const users = {}
@@ -20,39 +20,29 @@ const groups = {}
 
 
 io.on('connection', async(socket) => {
-    socket.on('new-user', (room, name, userDataFromFE) => {
-        console.log(userDataFromFE);
-        //For host
-        // {host:true, player:false, roomId:"144", roundValue:"3", userName:"Bilal"}
+    socket.on('new-user', (data) => {
 
-        // For player
-        // {host:false, player:true, roomId:"144" userName:"abhi"}
-        if (!room) {
-            users[socket.id] = name
-            io.sockets.in(socket.id).emit('public-room', room)
-            socket.broadcast.emit('user-connected', name)
+        if (!data.roomId) {
+            console.log("Room Id nakho re baba")
+            users[socket.id] = data.userName
+            io.sockets.in(socket.id).emit('public-room', data.roomId)
+            socket.broadcast.emit('user-connected', data.userName)
         } else {
 
-            //Checking wether the group is created or not
-            if (io.sockets.adapter.rooms[room] == undefined) {
-                socket.join(room)
-                socket.to(room).emit('room-joined', name)
-                joinroom(room, 1, name, socket.id)
 
+            //Assigning the values to local variables
+            let room = data.roomId
+            let name = data.userName
+            let host = data.host
+            let roundVal = data.roundValue
+
+            // Checking wether room is full or not using room Indicator values
+            if (getaccess(room) != 3) {
+                joinroom(room, name, socket.id, host, roundVal, getaccess(room))
+                socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room].length - 1 })
             } else {
-                const roomSize = io.sockets.adapter.rooms[room].length
-
-                if (roomSize === 4) {
-                    console.log(groups[room])
-                    io.sockets.in(socket.id).emit('unsuccessfull-msg', name)
-                        // console.log(Object.keys(io.sockets.adapter.rooms[room].sockets))
-
-                } else {
-                    socket.join(room)
-                    socket.to(room).emit('room-joined', name)
-                    joinroom(room, roomSize + 1, name, socket.id)
-
-                }
+                console.log("Room is full and details are : \n", groups[room])
+                socket.emit('DataFromBE', { insert: false, values: groups[room], members: 4 })
             }
 
         }
@@ -73,26 +63,43 @@ io.on('connection', async(socket) => {
     })
 })
 
-function joinroom(room, roomSize, name, id) {
-    
-        console.log(room,name);
-    io.sockets.in(id).emit('private-room', room)
+
+function getaccess(room) {
+    if (groups[room] == undefined)
+        return 1
+    else if (groups[room].length > 4)
+        return 3
+    else
+        return 2
+}
+
+function joinroom(room, name, id, hostVal, roundValue, roomIndicator) {
+
+    // io.sockets.in(id).emit('private-room', room)
     users[id] = name
     let group = []
-    if (roomSize != 1) {
+
+    if (roomIndicator == 1) {
+        group.push(roundValue)
+    }
+
+    if (roomIndicator == 2) {
         group = groups[room]
+
     }
     const user = {
-        'user id': roomSize,
+        'user id': id,
         'Name': name,
+        'Host': hostVal,
         'point': parseInt(0),
     }
 
     group.push(user)
     groups[room] = group
+    console.log(name + "  has joined room " + room + " Successfully with id " + id)
+
 }
-console.log("Server is running");
 
 server.listen(5009, () => {
-  console.log("SERVER IS RUNNING");
+    console.log("SERVER IS RUNNING");
 });
