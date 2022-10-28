@@ -6,199 +6,131 @@ $main-color: #ffca3a;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  // border: 2px solid red;
   .names {
-    h3 {
-      color: white;
-      width: max-content;
-      z-index: -100 !important;
-    }
+    display: none;
   }
-}
-
-button {
-  padding: 0.2rem 0.8rem;
-  font-size: 1rem;
-  display: inline;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  z-index: 1000;
-  background-color: antiquewhite;
-  cursor: pointer;
-  margin-bottom: 0.5rem;
-  transition: all 0.4s ease-in-out;
-  &:hover {
-    background: $main-color;
-    color: #fff;
-    box-shadow: 0 0 5px $main-color, 0 0 25px $main-color, 0 0 50px $main-color,
-      0 0 100px $main-color;
-  }
-}
-
-@mixin boxcode {
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  border-radius: 5px;
-  perspective: 1000px;
-  position: relative;
-  width: 0px;
-  height: 0px;
-  top: -100px;
-  left: 200%;
-}
-.box1 {
-  @include boxcode();
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-}
-
-.box2 {
-  @include boxcode();
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-  transition-delay: 0.3s;
-}
-.box3 {
-  @include boxcode();
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-  transition-delay: 0.5s;
-}
-.box4 {
-  @include boxcode();
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-  transition-delay: 0.7s;
-}
-@mixin btnHover {
-  display: block;
-  width: 25%;
-  height: 150px;
-}
-.boxClass ~ .box1 {
-  @include btnHover();
-  opacity: 1;
-  top: -300px;
-  left: 40%;
-}
-.boxClass ~ .box2 {
-  @include btnHover();
-  opacity: 1;
-  top: -450px;
-  left: 70%;
-}
-.boxClass ~ .box3 {
-  @include btnHover();
-  opacity: 1;
-  top: -420px;
-  left: 40%;
-}
-.boxClass ~ .box4 {
-  @include btnHover();
-  opacity: 1;
-  top: -570px;
-  left: 70%;
-}
-
-// card flip
-.card-content {
-  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
-  transition: all 2s;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.card-content img {
-  border-radius: 3px;
-}
-.card-back {
-  transform: rotateY(180deg);
-}
-
-.box1:hover .card-front {
-  transform: rotateY(-180deg);
-}
-.box1:hover .card-back {
-  transform: rotateY(0);
-}
-
-.box2:hover .card-front {
-  transform: rotateY(-180deg);
-}
-.box2:hover .card-back {
-  transform: rotateY(0);
-}
-
-.box3:hover .card-front {
-  transform: rotateY(-180deg);
-}
-.box3:hover .card-back {
-  transform: rotateY(0);
-}
-
-.box4:hover .card-front {
-  transform: rotateY(-180deg);
-}
-.box4:hover .card-back {
-  transform: rotateY(0);
-}
-
-.card-content img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-@media (max-width: 800px) {
-  .names {
-    margin-top: 20px;
+  button {
+    padding: 0.2rem 0.8rem;
+    font-size: 1rem;
     position: relative;
-    left: 55%;
-    top: -180px;
-    h3 {
-      font-size: 120%;
-      margin-bottom: 3px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    z-index: 1000;
+    background-color: antiquewhite;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+      background: $main-color;
+      color: #fff;
+      box-shadow: 0 0 5px $main-color, 0 0 25px $main-color,
+        0 0 50px $main-color, 0 0 100px $main-color;
     }
   }
+
   #start-btn {
-    position: relative;
-    left: 55%;
-    top: -230px;
-    padding: 5px 10px;
+    top: 22rem;
+    left: 11rem;
   }
   #cancel-btn {
-    position: relative;
-    left: 55%;
-    top: -230px;
-    padding: 5px 10px;
+    top: 19.6rem;
+    left: 15rem;
   }
-}
 
-@media (max-width: 450px) {
-  .names {
+  // .boxes {
+  //   border: 2px solid red;
+  @mixin boxcode {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    perspective: 1000px;
     position: relative;
-    left: 55%;
-    top: -160px;
-    h3 {
-      font-size: 100%;
-      margin-bottom: 3px;
+    width: 0px;
+    height: 0px;
+    top: -100px;
+    left: 200%;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+  @mixin btnHover {
+    display: block;
+    width: 25%;
+    height: 150px;
+    opacity: 1;
+  }
+
+  .box1 {
+    @include boxcode();
+  }
+
+  .box2 {
+    @include boxcode();
+    transition-delay: 0.3s;
+  }
+  .box3 {
+    @include boxcode();
+    transition-delay: 0.5s;
+  }
+  .box4 {
+    @include boxcode();
+    transition-delay: 0.7s;
+  }
+  .boxClass ~ .box1 {
+    @include btnHover();
+    top: -100px;
+    left: 15%;
+  }
+  .boxClass ~ .box2 {
+    @include btnHover();
+    top: -250px;
+    left: 45%;
+  }
+  .boxClass ~ .box3 {
+    @include btnHover();
+    top: -220px;
+    left: 15%;
+  }
+  .boxClass ~ .box4 {
+    @include btnHover();
+    top: -369px;
+    left: 45%;
+  }
+
+  // card flip
+  .card-content {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
+    transition: all 2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    img {
+      border-radius: 3px;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
     }
   }
-  #start-btn {
-    position: relative;
-    left: 55%;
-    top: -210px;
-    padding: 5px 10px;
+
+  .card-back {
+    transform: rotateY(180deg);
   }
-  #cancel-btn {
-    position: relative;
-    left: 55%;
-    top: -210px;
-    padding: 5px 10px;
+
+  .box1:hover .card-front,
+  .box2:hover .card-front,
+  .box3:hover .card-front,
+  .box4:hover .card-front {
+    transform: rotateY(-180deg);
   }
+  .box1:hover .card-back,
+  .box2:hover .card-back,
+  .box3:hover .card-back,
+  .box4:hover .card-back {
+    transform: rotateY(0);
+  }
+  // }
 }
