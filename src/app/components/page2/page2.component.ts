@@ -5,7 +5,7 @@ import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
   templateUrl: './page2.component.html',
   styleUrls: ['./page2.component.scss']
 })
-export class Page2Component implements OnInit { 
+export class Page2Component implements OnInit {
 usersData:any = [
     { host: true, player: false, roundValue: "5", userName: "Bilal", roomId : '123', score : 500 , uniqueId:1},
     { host: false, player: true, roundValue: "5", userName: "Chetan", roomId : '123', score : 180 , uniqueId:2},
@@ -35,11 +35,11 @@ usersData1:any = [
 
   ngOnChanges(){
     console.log(1);
-    
+
   }
 
   ngDoCheck(){
-    console.log("Do Check");
+    // console.log("Do Check");
     if(this.usersData1.length == 0){
       this.showCard1 = false;
       this.showCard2 = false;
@@ -65,19 +65,19 @@ usersData1:any = [
       this.showCard3 = true;
       this.showCard4 = true;
     }
-    
+
   }
 
   addValue(){
-    console.log("add");  
-    this.disableClearbtn = false;  
+    console.log("add");
+    this.disableClearbtn = false;
     this.usersData1.push({ host: false, player: true, roundValue: "5", userName: "Chetan", roomId : '123', score : 180 , uniqueId:2},);
     if(this.usersData1.length < 4){
       this.disableAddbtn = false;
       this.startButton = true;
     }
     else{
-      this.disableAddbtn = true;      
+      this.disableAddbtn = true;
       this.startButton = false;
     }
   }
