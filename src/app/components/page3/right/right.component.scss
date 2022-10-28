@@ -39,98 +39,98 @@ $main-color: #ffca3a;
     left: 15rem;
   }
 
-  .boxes {
-    border: 2px solid red;
-    @mixin boxcode {
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      border-radius: 5px;
-      perspective: 1000px;
-      position: relative;
-      width: 0px;
-      height: 0px;
-      top: -100px;
-      left: 200%;
-      opacity: 0;
-      transition: all 0.4s ease-in-out;
-    }
-    @mixin btnHover {
-      display: block;
-      width: 25%;
-      height: 150px;
-      opacity: 1;
-    }
+  // .boxes {
+  //   border: 2px solid red;
+  @mixin boxcode {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    perspective: 1000px;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    top: -100px;
+    left: 200%;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+  @mixin btnHover {
+    display: block;
+    width: 25%;
+    height: 150px;
+    opacity: 1;
+  }
 
-    .box1 {
-      @include boxcode();
-    }
+  .box1 {
+    @include boxcode();
+  }
 
-    .box2 {
-      @include boxcode();
-      transition-delay: 0.3s;
-    }
-    .box3 {
-      @include boxcode();
-      transition-delay: 0.5s;
-    }
-    .box4 {
-      @include boxcode();
-      transition-delay: 0.7s;
-    }
-    .boxClass ~ .box1 {
-      @include btnHover();
-      top: -100px;
-      left: 15%;
-    }
-    .boxClass ~ .box2 {
-      @include btnHover();
-      top: -250px;
-      left: 45%;
-    }
-    .boxClass ~ .box3 {
-      @include btnHover();
-      top: -220px;
-      left: 15%;
-    }
-    .boxClass ~ .box4 {
-      @include btnHover();
-      top: -369px;
-      left: 45%;
-    }
+  .box2 {
+    @include boxcode();
+    transition-delay: 0.3s;
+  }
+  .box3 {
+    @include boxcode();
+    transition-delay: 0.5s;
+  }
+  .box4 {
+    @include boxcode();
+    transition-delay: 0.7s;
+  }
+  .boxClass ~ .box1 {
+    @include btnHover();
+    top: -100px;
+    left: 15%;
+  }
+  .boxClass ~ .box2 {
+    @include btnHover();
+    top: -250px;
+    left: 45%;
+  }
+  .boxClass ~ .box3 {
+    @include btnHover();
+    top: -220px;
+    left: 15%;
+  }
+  .boxClass ~ .box4 {
+    @include btnHover();
+    top: -369px;
+    left: 45%;
+  }
 
-    // card flip
-    .card-content {
-      box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
-      transition: all 2s;
-      position: absolute;
-      top: 0;
-      left: 0;
+  // card flip
+  .card-content {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
+    transition: all 2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    img {
+      border-radius: 3px;
       width: 100%;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      img {
-        border-radius: 3px;
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-      }
-    }
-
-    .card-back {
-      transform: rotateY(180deg);
-    }
-
-    .box1:hover .card-front,
-    .box2:hover .card-front,
-    .box3:hover .card-front,
-    .box4:hover .card-front {
-      transform: rotateY(-180deg);
-    }
-    .box1:hover .card-back,
-    .box2:hover .card-back,
-    .box3:hover .card-back,
-    .box4:hover .card-back {
-      transform: rotateY(0);
+      height: 150px;
+      object-fit: cover;
     }
   }
+
+  .card-back {
+    transform: rotateY(180deg);
+  }
+
+  .box1:hover .card-front,
+  .box2:hover .card-front,
+  .box3:hover .card-front,
+  .box4:hover .card-front {
+    transform: rotateY(-180deg);
+  }
+  .box1:hover .card-back,
+  .box2:hover .card-back,
+  .box3:hover .card-back,
+  .box4:hover .card-back {
+    transform: rotateY(0);
+  }
+  // }
 }

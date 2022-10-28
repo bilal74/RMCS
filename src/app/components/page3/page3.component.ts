@@ -9,7 +9,7 @@ export class Page3Component implements OnInit {
 
   usersData:any = [
     { host: true, player: false, roundValue: "5", userName: "Bilal", roomId : '123', score : 500 , uniqueId:1},
-    { host: false, player: true, roundValue: "5", userName: "Chetan", roomId : '123', score : 180 , uniqueId:2},
+    { host: false, player: true, roundValue: "5", userName: "Arham", roomId : '123', score : 680 , uniqueId:2},
     { host: false, player: true, roundValue: "5", userName: "Abhinav", roomId : '123', score : 50 , uniqueId:3},
     { host: false, player: true, roundValue: "5", userName: "Mona", roomId : '123', score : 160 , uniqueId:4}
   ]

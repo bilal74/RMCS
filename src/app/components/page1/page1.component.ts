@@ -35,7 +35,10 @@ export class Page1Component implements OnInit {
     },
   ]
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    
+    // let val = Math.floor(Math.random()*(999-100+1)+100);
+    // console.log("Random",val);
   }
 
   onSubmit(data:any){
@@ -68,6 +71,7 @@ export class Page1Component implements OnInit {
           else{
             this.userData.host = true;
             this.userData.player = false;
+            this.userData.roomId = ""+Math.floor(Math.random()*(999-100+1)+100);
           }
 
           // console.log("User data : ", this.userData);
