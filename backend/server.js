@@ -20,54 +20,57 @@ const groups = {}
 
 
 io.on('connection', async(socket) => {
+
+    //Function for adding a user into a room
     socket.on('new-user', (data) => {
 
-        if (!data.roomId) {
-            console.log("Room Id nakho re baba")
-            users[socket.id] = data.userName
-            io.sockets.in(socket.id).emit('public-room', data.roomId)
-            socket.broadcast.emit('user-connected', data.userName)
+        //Assigning the values to local variables
+        let room = data.roomId
+        let name = data.userName
+        let host = data.host
+        let roundVal = data.roundValue
+
+        // Checking wether room is full or not using room Indicator values
+        if (getaccess(room) != 3) {
+            joinroom(room, name, socket.id, host, roundVal, getaccess(room))
+            socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room][2].length })
         } else {
-
-
-            //Assigning the values to local variables
-            let room = data.roomId
-            let name = data.userName
-            let host = data.host
-            let roundVal = data.roundValue
-
-            // Checking wether room is full or not using room Indicator values
-            if (getaccess(room) != 3) {
-                joinroom(room, name, socket.id, host, roundVal, getaccess(room))
-                socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room].length - 1 })
-            } else {
-                console.log("Room is full and details are : \n", groups[room])
-                socket.emit('DataFromBE', { insert: false, values: groups[room], members: 4 })
-            }
-
+            console.log("Room is full and details are : \n", groups[room])
+            socket.emit('DataFromBE', { insert: false, values: groups[room], members: 4 })
         }
     })
 
 
-    socket.on('send-chat-message', (message, room) => {
-        if (room === "") {
-            socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
-        } else {
-            socket.to(room).emit('chat-message', { message: message, name: users[socket.id] })
-        }
-
-    })
+    //Function for removing a user from room
     socket.on('disconnect', () => {
-        socket.broadcast.emit('user-disconnected', users[socket.id])
-        delete users[socket.id]
+        if (users[socket.id] != undefined) {
+            let room = users[socket.id].slice(0, 3)
+            let index = Clearance(socket.id, groups[room][2])
+            groups[room][2].splice(index, 1)
+            console.log(users[socket.id].slice(3), "with ID", socket.id, "has left the chat room", room)
+                // console.log(groups[room])
+            delete users[socket.id]
+        } else {
+            console.log("Next time, join a room before leaving")
+        }
+
     })
 })
 
 
+function Clearance(id, group) {
+
+    for (let i = 0; i < group.length; i++) {
+        if (group[i].userId == id) {
+            return i
+        }
+    }
+}
+
 function getaccess(room) {
     if (groups[room] == undefined)
         return 1
-    else if (groups[room].length > 4)
+    else if (groups[room][2].length > 3)
         return 3
     else
         return 2
@@ -76,27 +79,32 @@ function getaccess(room) {
 function joinroom(room, name, id, hostVal, roundValue, roomIndicator) {
 
     // io.sockets.in(id).emit('private-room', room)
-    users[id] = name
+    users[id] = room + name
     let group = []
+    let indiv = []
 
-    if (roomIndicator == 1) {
-        group.push(roundValue)
-    }
-
-    if (roomIndicator == 2) {
-        group = groups[room]
-
-    }
     const user = {
-        'user id': id,
+        'userId': id,
         'Name': name,
         'Host': hostVal,
         'point': parseInt(0),
     }
 
-    group.push(user)
+    if (roomIndicator == 1) {
+        group.push(roundValue)
+        group.push(room)
+        indiv.push(user)
+        group.push(indiv)
+    }
+
+    if (roomIndicator == 2) {
+        group = groups[room]
+        indiv = group[2]
+        indiv.push(user)
+    }
+
     groups[room] = group
-    console.log(name + "  has joined room " + room + " Successfully with id " + id)
+    console.log(name, "has joined room", room, "Successfully with id", id)
 
 }
 
