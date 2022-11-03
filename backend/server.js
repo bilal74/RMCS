@@ -31,12 +31,14 @@ io.on('connection', async(socket) => {
         let roundVal = data.roundValue
 
         // Checking wether room is full or not using room Indicator values
+
         if (getaccess(room) != 3) {
             joinroom(room, name, socket.id, host, roundVal, getaccess(room))
-            socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room][2].length })
+            console.log(groups[room].users)
+            socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room].users.length, msg: "YOu joined room succesfully" })
         } else {
             console.log("Room is full and details are : \n", groups[room])
-            socket.emit('DataFromBE', { insert: false, values: groups[room], members: 4 })
+            socket.emit('DataFromBE', { insert: false, values: groups[room], members: 4, msg: "Room is Full" })
         }
     })
 
@@ -70,7 +72,7 @@ function Clearance(id, group) {
 function getaccess(room) {
     if (groups[room] == undefined)
         return 1
-    else if (groups[room][2].length > 3)
+    else if (groups[room].users.length > 3)
         return 3
     else
         return 2
@@ -80,7 +82,7 @@ function joinroom(room, name, id, hostVal, roundValue, roomIndicator) {
 
     // io.sockets.in(id).emit('private-room', room)
     users[id] = room + name
-    let group = []
+    let group = {}
     let indiv = []
 
     const user = {
@@ -91,16 +93,17 @@ function joinroom(room, name, id, hostVal, roundValue, roomIndicator) {
     }
 
     if (roomIndicator == 1) {
-        group.push(roundValue)
-        group.push(room)
+        group["rounds"] = roundValue
+        group["room"] = room
         indiv.push(user)
-        group.push(indiv)
+        group["users"] = indiv
     }
 
     if (roomIndicator == 2) {
         group = groups[room]
-        indiv = group[2]
+        indiv = groups[room].users
         indiv.push(user)
+        console.log(groups[room])
     }
 
     groups[room] = group
