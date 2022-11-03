@@ -14,6 +14,7 @@ interface tempDataType {
 export class UserDataFromHomeService {
   socket:any = null;
   userServiceData:any = [{}];
+  dataFromBackend:any = [];
   constructor() {
     this.socket = io('http://localhost:5009');
     // console.log("Socket", this.socket);
@@ -28,10 +29,15 @@ export class UserDataFromHomeService {
 
     // Data from backend and modified
     this.socket.on('DataFromBE', (data: any) => {
-      console.log("Member Joined status: ", data.insert, "\nMember Joined till now: ", data.members,"\nMessage from Vijayant:", data.msg)
-      console.log("Member Details: ", data.values)
+      // console.log("Member Joined status: ", data.insert, "\nMember Joined till now: ", data.members,"\nMessage from Vijayant:", data.msg)
+      // console.log("Member Details: ", data.values)
+      this.dataFromBackend.push(data);
     })
 
+  }
+
+  getDataFromBackend(){
+    return this.dataFromBackend;
   }
 
 

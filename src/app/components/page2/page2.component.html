@@ -2,52 +2,58 @@
   <div class="parent-page2">
     <div class="cards-page2">
       <div class="card-pg2">
-        <div class="card-present" *ngIf="showCard1">
+        <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 1;else other_content">
           <img src="../../../assets/king-removebg-preview.png" alt="">
-          <p class="cards-name">Name</p>
+          <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[0]?.Name}}</p>
         </div>
-        <div class="spinner-page2" *ngIf="!showCard1">
-          <mat-spinner></mat-spinner>
-        </div>
+        <ng-template #other_content>
+          <div class="spinner-page2">
+            <span class="loader"></span>
+          </div>
+        </ng-template>
 
       </div>
       <div class="card-pg2">
-        <div class="card-present" *ngIf="showCard2">
+        <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 2;else other_content2">
           <img src="../../../assets/mantrii-removebg-preview.png" alt="">
-          <p class="cards-name">Name</p>
+          <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[1]?.Name}}</p>
         </div>
-        <div class="spinner-page2" *ngIf="!showCard2">
-          <mat-spinner></mat-spinner>
-        </div>
+        <ng-template #other_content2>
+          <div class="spinner-page2">
+            <span class="loader"></span>
+          </div>
+        </ng-template>
       </div>
+
       <div class="card-pg2">
 
-        <div class="card-present" *ngIf="showCard3">
+        <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 3;else other_content3">
           <img src="../../../assets/chor-removebg-preview.png" alt="">
-          <p class="cards-name">Name</p>
+          <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[2]?.Name}}</p>
         </div>
-        <div class="spinner-page2" *ngIf="!showCard3">
-          <mat-spinner></mat-spinner>
-        </div>
+        <ng-template #other_content3>
+          <div class="spinner-page2">
+            <span class="loader"></span>
+          </div>
+        </ng-template>
 
       </div>
       <div class="card-pg2">
-        <div class="card-present" *ngIf="showCard4">
+        <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members == 4;else other_content4">
           <img src="../../../assets/knight-removebg-preview.png" alt="">
-          <p class="cards-name">Name</p>
+          <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[3]?.Name}}</p>
         </div>
-        <div class="spinner-page2" *ngIf="!showCard4">
-          <mat-spinner></mat-spinner>
-        </div>
+        <ng-template #other_content4>
+          <div class="spinner-page2">
+            <span class="loader"></span>
+          </div>
+        </ng-template>
       </div>
     </div>
 
     <div class="btn-page2">
-      <button routerLink="page3" tooltip="Only Host Can Start The Game" [disabled]="startButton" class="btn-start">Start
-        Game</button>
+      <!-- <button routerLink="page3" class="btn-start">Start Game</button> -->
+      <button routerLink="page3" [disabled]="disablestartButton" class="btn-start">Start Game</button>
     </div>
-
-    <button (click)="addValue()" [disabled]="disableAddbtn">Add Cards</button>
-    <button (click)="clearValue()" [disabled]="disableClearbtn">Clear Cards</button>
   </div>
 </div>
