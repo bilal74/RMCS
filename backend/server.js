@@ -34,8 +34,7 @@ io.on('connection', async(socket) => {
 
         if (getaccess(room) != 3) {
             joinroom(room, name, socket.id, host, roundVal, getaccess(room))
-            console.log(groups[room].users)
-            socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room].users.length, msg: "YOu joined room succesfully" })
+            socket.emit('DataFromBE', { insert: true, values: groups[room], members: groups[room].users.length, msg: "You joined room succesfully" })
         } else {
             console.log("Room is full and details are : \n", groups[room])
             socket.emit('DataFromBE', { insert: false, values: groups[room], members: 4, msg: "Room is Full" })
@@ -47,8 +46,8 @@ io.on('connection', async(socket) => {
     socket.on('disconnect', () => {
         if (users[socket.id] != undefined) {
             let room = users[socket.id].slice(0, 3)
-            let index = Clearance(socket.id, groups[room][2])
-            groups[room][2].splice(index, 1)
+            let index = Clearance(socket.id, groups[room].users)
+            groups[room].users.splice(index, 1)
             console.log(users[socket.id].slice(3), "with ID", socket.id, "has left the chat room", room)
                 // console.log(groups[room])
             delete users[socket.id]
@@ -92,6 +91,7 @@ function joinroom(room, name, id, hostVal, roundValue, roomIndicator) {
         'point': parseInt(0),
     }
 
+    //Initialising group value
     if (roomIndicator == 1) {
         group["rounds"] = roundValue
         group["room"] = room
@@ -99,11 +99,11 @@ function joinroom(room, name, id, hostVal, roundValue, roomIndicator) {
         group["users"] = indiv
     }
 
+    //Inserting new user into the group
     if (roomIndicator == 2) {
         group = groups[room]
         indiv = groups[room].users
         indiv.push(user)
-        console.log(groups[room])
     }
 
     groups[room] = group
