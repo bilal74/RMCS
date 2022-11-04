@@ -46,8 +46,13 @@ io.on('connection', async(socket) => {
     socket.on('disconnect', () => {
         if (users[socket.id] != undefined) {
             let room = users[socket.id].slice(0, 3)
+<<<<<<< HEAD
             let index = Clearance(socket.id, groups[room].users)
             groups[room].users.splice(index, 1)
+=======
+            let index = Clearance(socket.id, groups[room][2])
+            groups[room][2]?.splice(index, 1)
+>>>>>>> 58e0f876d3bd627e9b21db8fba5a293f6cb282b1
             console.log(users[socket.id].slice(3), "with ID", socket.id, "has left the chat room", room)
                 // console.log(groups[room])
             delete users[socket.id]
@@ -61,7 +66,7 @@ io.on('connection', async(socket) => {
 
 function Clearance(id, group) {
 
-    for (let i = 0; i < group.length; i++) {
+    for (let i = 0; i < group?.length; i++) {
         if (group[i].userId == id) {
             return i
         }
