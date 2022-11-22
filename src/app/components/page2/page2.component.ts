@@ -17,15 +17,32 @@ usersData1:any = [
   ngOnInit(): void {
   }
 
-  ngDoCheck(){
-    let dataBE = this.userService?.getDataFromBackend();
-    this.dataFromBackendForPage2 = dataBE;   
-    console.log("Data Bilal : ", dataBE);
-    if(this.dataFromBackendForPage2[0]?.members == 4){
-      this.disablestartButton = false;
-    }
-    else{
-      this.disablestartButton = true;
-    }
+  // ngDoCheck(){
+  //   // setInterval(() => {
+  //   //   // let dataBE = this.userService?.getDataFromBackend(201);
+  //   //   console.log("Time limit")
+  //   // }, 5000)
+
+  //   let dataBE = this.userService?.getDataFromBackend(201);
+  //   this.dataFromBackendForPage2 = dataBE;
+  //   console.log("Data Bilal from page 2: ", dataBE);
+  //   if(this.dataFromBackendForPage2[0]?.members == 4){
+  //     this.disablestartButton = false;
+  //   }
+  //   else{
+  //     this.disablestartButton = true;
+  //   }
+  // }
+
+  test(){
+    let dataBE = this.userService?.getDataFromBackend(201);
+    this.dataFromBackendForPage2 = dataBE;
+    console.log("Data Bilal from test ", this.dataFromBackendForPage2);
+    // console.log(this.userService?.getDataFromBackend(201))
+  }
+
+
+  ngOnChanges(){
+    console.log("CHange in FUnction")
   }
 }
