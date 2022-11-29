@@ -29,14 +29,20 @@ export class UserDataFromHomeService {
 
     // Data from backend and modified
     this.socket.on('DataFromBE', (data: any) => {
-      // console.log("Member Joined status: ", data.insert, "\nMember Joined till now: ", data.members,"\nMessage from Vijayant:", data.msg)
+      // console.log("Member Joined status: ", data.insert, "\nMember Joined till now: ", data.members,"\nMessage:", data.msg)
       // console.log("Member Details: ", data.values)
       this.dataFromBackend.push(data);
     })
 
   }
 
-  getDataFromBackend(){
+
+  getDataFromBackend(roomId: number){
+    this.socket.emit("allUser", roomId);
+
+    this.socket.on('UpdatedData', (data: any) => {
+      console.log("Updated data from BE: ", data)
+    })
     return this.dataFromBackend;
   }
 

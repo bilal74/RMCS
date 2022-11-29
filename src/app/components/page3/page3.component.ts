@@ -8,7 +8,7 @@ import { UserDataFromHomeService } from 'src/app/services/user-data-from-home.se
 })
 export class Page3Component implements OnInit {
 
-  usersData:any = [ 
+  usersData:any = [
     { host: true, player: false, roundValue: "5", userName: "Bilal", roomId : '123', score : 500 , uniqueId:1},
     { host: false, player: true, roundValue: "5", userName: "Arham", roomId : '123', score : 680 , uniqueId:2},
     { host: false, player: true, roundValue: "5", userName: "Abhinav", roomId : '123', score : 50 , uniqueId:3},
@@ -23,21 +23,21 @@ export class Page3Component implements OnInit {
 
   ngOnInit(): void {
     // this.forSortingArray();
-    this.usersDataFromBE = this.userService.getDataFromBackend();
+    this.usersDataFromBE = this.userService.getDataFromBackend(201);
     console.log("Page 3 User data : ", this.usersDataFromBE);
-    
+
     // console.log(this.userService.getDataFromBackend);
-    
+
   }
 
   ngDoCheck(){
     // console.log("Do Check");
     this.forSortingArray();
-    
+
   }
   ngOnChanges(){
     console.log('Changed');
-    
+
   }
 
   forSortingArray(){
@@ -50,7 +50,7 @@ export class Page3Component implements OnInit {
       }
       return 0;
     });
-  
+
     // console.log("Sorted array ", sortedStudents);
   }
 

@@ -41,7 +41,6 @@ io.on('connection', async(socket) => {
         }
     })
 
-
     //Function for removing a user from room
     socket.on('disconnect', () => {
         if (users[socket.id] != undefined) {
@@ -56,11 +55,32 @@ io.on('connection', async(socket) => {
         }
 
     })
+
+    //Function to Update the Scores
+    socket.on('Update', (data) => {
+        console.log("Scores updated succesfully")
+        let room = data.room
+        let rounds = data.rounds
+        Scores(room, rounds, data.users)
+    })
+
+    socket.on('allUser', (roomID) => {
+        if (groups[roomID]) {
+            console.log("Room ka data", groups[roomID].users)
+            socket.emit('UpdatedData', { val: groups[roomID].users })
+
+        } else {
+            console.log("apun ka data", groups)
+            socket.emit('UpdatedData', { val: "Room not Created" })
+
+        }
+
+    })
 })
 
 
 function Scores() {
-    console.log("Function Callled")
+    console.log("Function Callled now")
 }
 
 function Clearance(id, group) {
