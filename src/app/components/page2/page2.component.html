@@ -2,9 +2,10 @@
     <div class="parent-page2">
         <div class="cards-page2">
             <div class="card-pg2">
-                <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 1;else other_content">
+                <!-- <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 1;else other_content"> -->
+                <div class="card-present" *ngIf="this.dataFromBackendForPage2?.members >= 1;else other_content">
                     <img src="../../../assets/king-removebg-preview.png" alt="">
-                    <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[0]?.Name}}</p>
+                    <p class="cards-name">{{dataFromBackendForPage2?.values?.users[0]?.Name}}</p>
                 </div>
                 <ng-template #other_content>
                     <div class="spinner-page2">
@@ -14,9 +15,10 @@
 
             </div>
             <div class="card-pg2">
-                <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 2;else other_content2">
+                <div class="card-present" *ngIf="this.dataFromBackendForPage2?.members >= 2;else other_content2">
+                <!-- <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 2;else other_content2"> -->
                     <img src="../../../assets/mantrii-removebg-preview.png" alt="">
-                    <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[1]?.Name}}</p>
+                    <p class="cards-name">{{dataFromBackendForPage2?.values?.users[1]?.Name}}</p>
                 </div>
                 <ng-template #other_content2>
                     <div class="spinner-page2">
@@ -27,9 +29,10 @@
 
             <div class="card-pg2">
 
-                <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 3;else other_content3">
+                <div class="card-present" *ngIf="this.dataFromBackendForPage2?.members >= 3;else other_content3">
+                <!-- <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members >= 3;else other_content3"> -->
                     <img src="../../../assets/chor-removebg-preview.png" alt="">
-                    <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[2]?.Name}}</p>
+                    <p class="cards-name">{{dataFromBackendForPage2?.values?.users[2]?.Name}}</p>
                 </div>
                 <ng-template #other_content3>
                     <div class="spinner-page2">
@@ -39,9 +42,10 @@
 
             </div>
             <div class="card-pg2">
-                <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members == 4;else other_content4">
+                <div class="card-present" *ngIf="this.dataFromBackendForPage2?.members == 4;else other_content4">
+                <!-- <div class="card-present" *ngIf="this.dataFromBackendForPage2[0]?.members == 4;else other_content4"> -->
                     <img src="../../../assets/knight-removebg-preview.png" alt="">
-                    <p class="cards-name">{{dataFromBackendForPage2[0]?.values?.users[3]?.Name}}</p>
+                    <p class="cards-name">{{dataFromBackendForPage2?.values?.users[3]?.Name}}</p>
                 </div>
                 <ng-template #other_content4>
                     <div class="spinner-page2">
