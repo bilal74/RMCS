@@ -36,12 +36,16 @@ export class UserDataFromHomeService {
 
   }
 
+  userDataFromFrontEnd(){
+    return this.userServiceData;
+  }
 
   getDataFromBackend(roomId: number){
     this.socket.emit("allUser", roomId);
 
     this.socket.on('UpdatedData', (data: any) => {
-      console.log("data by Viju: ", data)
+      console.log("data by Viju: ", data);
+      this.dataFromBackend = data;
     })
     return this.dataFromBackend;
   }

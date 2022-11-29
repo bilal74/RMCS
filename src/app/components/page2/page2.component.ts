@@ -35,7 +35,11 @@ usersData1:any = [
   // }
 
   test(){
-    let dataBE = this.userService?.getDataFromBackend(201);
+    // console.log("Test Fn");
+    let userData = this.userService.userDataFromFrontEnd();
+    // console.log(userData);
+    let roomidpage1 = userData.roomId;
+    let dataBE = this.userService.getDataFromBackend(roomidpage1);
     this.dataFromBackendForPage2 = dataBE;
     console.log("Data Bilal from test ", this.dataFromBackendForPage2);
     // console.log(this.userService?.getDataFromBackend(201))
