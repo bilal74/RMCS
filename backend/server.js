@@ -65,13 +65,15 @@ io.on('connection', async(socket) => {
     })
 
     socket.on('allUser', (roomID) => {
+
         if (groups[roomID]) {
-            console.log("Room ka data", groups[roomID].users)
-            socket.emit('UpdatedData', { val: groups[roomID].users })
+            console.log("Room ka data", groups[roomID])
+            socket.emit('UpdatedData', { insert: true, values: groups[roomID], members: groups[roomID].users.length, msg: "You joined room succesfully" })
 
         } else {
             console.log("apun ka data", groups)
-            socket.emit('UpdatedData', { val: "Room not Created" })
+            socket.emit('UpdatedData', { insert: false, values: "Room not Created", members: 0, msg: "No data to show" })
+                // socket.emit('UpdatedData', { val: "Room not Created" })
 
         }
 

@@ -41,7 +41,7 @@ export class UserDataFromHomeService {
     this.socket.emit("allUser", roomId);
 
     this.socket.on('UpdatedData', (data: any) => {
-      console.log("Updated data from BE: ", data)
+      console.log("data by Viju: ", data)
     })
     return this.dataFromBackend;
   }
